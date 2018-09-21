@@ -1,0 +1,145 @@
+/* ***************************************************
+ Patricia Renee Taylor 9/16/18
+ Churches_R_Us
+ Version 0.0
+ Objective - get something up and running for proof of concept
+
+***************************************************/
+
+  /* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+  */
+  html, body, div, span,
+  h1, h2, h3, h4, h5, h6, p,
+  a, em, img, small, strong,
+  ol, ul, li, button,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed,
+  figure, figcaption, footer, header, hgroup,
+  menu, nav, section, summary {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+  /* HTML5 display-role reset for older browsers */
+  article, aside, details, figcaption, figure,
+  footer, header, hgroup, menu, nav, section {
+    display: block;
+  }
+  body {
+    line-height: 1;
+  }
+  ol, ul {
+    list-style: none;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+/* Start Custom Stylesheet */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Frank Ruhl Libre', serif;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.4em;
+  }
+  
+  fieldset {
+    background-color: rgba(235, 235, 235, 0.5);
+
+    padding: 1rem 2rem;
+ 
+    width: 100%;  
+  }  
+  
+  form {
+    font-size: .8em;
+  }
+
+  .main-content {
+    align-items: center;
+    background-image: url('peaceful_ocean.jpg');
+    background-size: cover;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    width: 100vw;
+  }
+
+  .logo-box {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    margin: .5rem;
+    padding: .5rem;
+    position: absolute;
+    top: 0;
+  }
+
+  .logo {
+    width: 75px;
+  }
+
+  .interface-box {
+    background-color: white;
+    border-radius: 3px;
+    max-width: 100%;
+    min-height: 200px;
+    padding: 2rem;
+    width: 570px;
+  }
+
+  .page-heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .content-body {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    
+  }
+  
+
+  .button {
+    background-color: rgba(248, 72, 51, .9);
+    border: 0 none;
+    border-radius: 3px;
+    color: white;
+    font-weight: 700;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: .8rem 2rem;
+    text-decoration: none;
+  }
+
+  .margin-text {
+    margin-top: 2rem;
+  }
+
+  footer {
+    background-color: rgba(255, 255, 255, 0.5);
+    bottom: 0;
+    padding: 1rem 3rem;
+    position: absolute;
+    width: 100%;
+  }
