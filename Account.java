@@ -21,6 +21,7 @@
 package Business;
 
 import java.sql.*;
+import java.sql.DriverManager;
 
 public class Account {
 
@@ -99,14 +100,41 @@ public class Account {
             System.out.println("pp: " + e);
         }
     }//end selectDB() method  
+    
+//-------------updateDB method----------
+    public void updateDB(){
+       try{
+           System.out.println("Starting Account updateDB");
+           openConnection();
+           System.out.println("acctNo: "+getAcctNo()+" cid: "+getCid()+" type: "+getType()+" balance: "+getBalance());
+           String sql;
+           sql = "update Accounts set AcctNo = '" +getAcctNo()+"',"
+                   +"Cid = '" +getCid()+"',"
+                   +"Type = '" +getType()+"',"
+                   +"Balance = " +getBalance()+" "
+                   +"where Acctno = '" +getAcctNo()+"'";
+           System.out.println(sql);
+           int resultFlag = stmt.executeUpdate(sql);
+           if (resultFlag == 1){
+               System.out.println("Account-updateDB insert was successful. Huzza!");
+           }else{
+               System.out.println("Account-updateDB insert was NOT succesful. ");
+           }
+           
+           con.close();
+       } catch (Exception e){
+           System.out.println("Exception from Account, updateDB(): "+e);
+       }
+        
+    }//end updateDB method
  
-    //-------------deposit method---------
+//-------------deposit method---------
     public void deposit(double depAmt) {
         
         setBalance( getBalance() + depAmt );
     }//end deposit() method  
  
-    //-------------withdrawl method---------
+//-------------withdrawl method---------
     public void withdraw(double withdrawAmt) throws InsufficientFunds {
     
         if (withdrawAmt > getBalance()) {
@@ -161,20 +189,22 @@ public class Account {
         //a1.display();
         //System.out.println(a1);
        
-//-------------Testing SelectDB-----------------  
+//-------------Testing updateDB-----------------  
         Account a2;
         a2 = new Account();
-        a2.selectDB("90002");
+        a2.selectDB("90010");
         a2.display();
+        System.out.println("-----deposit 10,000");
         a2.deposit(10000.00);
         System.out.println(a2);
-        
-        try {
-            a2.withdraw(19000.00);
-        } catch (InsufficientFunds e) {
-            System.out.println(e);
-        }
-        a2.display();
+        a2.updateDB();
+//        System.out.println("=====withdraw 19,000");
+//        try {
+//            a2.withdraw(89000.00);
+//        } catch (InsufficientFunds e) {
+//            System.out.println(e);
+//        }
+//        a2.display();
         
 
     }//end main

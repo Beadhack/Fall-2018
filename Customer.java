@@ -16,6 +16,7 @@
 package Business;
 
 import java.sql.*;
+import java.sql.DriverManager;
 
 public class Customer {
 
@@ -201,12 +202,13 @@ public class Customer {
             System.out.println("Starting updateDB............");
             openConnection();
             String sql;
-            sql = "update Customers set CustID = '" + getCustID() + "','"
-                    + "CustPassword  = '" + getCustPassword() + "', '"
-                    + "CustFirstName = '" + getCustFirstName() + "', '"
-                    + "CustLastName  = '" + getCustLastName() + "', '"
-                    + "CustAddress   = '" + getCustAddress() + "', '"
-                    + "CustEmail     = '" + getCustEmail() + "';";
+            sql = "update Customers set CustID = '" + getCustID() + "',"
+                    + "CustPassword  = '" + getCustPassword() + "', "
+                    + "CustFirstName = '" + getCustFirstName() + "', "
+                    + "CustLastName  = '" + getCustLastName() + "', "
+                    + "CustAddress   = '" + getCustAddress() + "', "
+                    + "CustEmail     = '" + getCustEmail() + "' " 
+                    + "where CustID = '" + getCustID() + "'";
                    
             System.out.println(sql);
             int resultFlag = stmt.executeUpdate(sql);
@@ -280,24 +282,24 @@ public class Customer {
         //c1.display();
        
 //-------------Testing SelectDB-----------------  
-        Customer c2;
-        c2 = new Customer();
-        c2.selectDB("3001");
-        c2.display();
+//        Customer c2;
+//        c2 = new Customer();
+//        c2.selectDB("3001");
+//        c2.display();
 
 //-------------Testing InsertDB----------------- 
-        //Customer c3;
-        //c3 = new Customer();
-        //c3.insertDB("3066","126*","Jon","de","atlanta","jd@aol.com");
+//        Customer c3;
+//        c3 = new Customer();
+//        c3.insertDB("3069","1268","Jonny","de","atlanta","ud@aol.com");
  
 //-------------Testing UpdateDB----------------- 
-        //Customer c4;
-        //c4 = new Customer();
-        //c4.selectDB("3006");
-        //c4.setCustEmail("Jon@gmail.com");
-        //c4.setCustAddress("Macon");
-        //c4.updateDB();
-        //c4.display();
+        Customer c4;
+        c4 = new Customer();
+        c4.selectDB("3069");
+        c4.setCustEmail("JJ@gmail.com");
+        c4.setCustAddress("Savannah");
+        c4.updateDB();
+        c4.display();
 
 //-------------Testing DeletetDB-----------------         
         //Customer c5;
@@ -313,8 +315,6 @@ public class Customer {
 //        String id;
 //        
 //        System.out.println(c6.verifyLogin("3001", "1234"));
-
-               
         
     }//end main
 }//end class
